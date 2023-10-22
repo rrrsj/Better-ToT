@@ -4,7 +4,7 @@ All available tools are listed following, including their names,function descrip
 {tool_description}\
 You need to generate {num} plans based on the current situation, but you must give the answer in the following json format:\n  \
 In particular, if you want to use the output of a step, you can use $stepid to indicate it.\n\
-{{\
+[{{\
 "planid":(This is the number of the plan,it should be a number),\
 "step":\
 [{{\
@@ -12,7 +12,7 @@ In particular, if you want to use the output of a step, you can use $stepid to i
 "action":the action to take, should be one of [{tool_names}],\
 "action_input":the input to the action,It should be a dictionary {{"paramter":"value"}}\
 }}...Tuple species can contain multiple steps]\
-}}\n\
+}},...It should contain {num} plans]\n\
 Here is an example:\n \
 Environment:null.\n\
 Question:What is the weather like in Beijing?\n\
@@ -32,7 +32,7 @@ Answer:\n\
 "action_input":{{"longitude":"$1","dimensionality":"$1"}}\
 }}\
 ]\
-}}\
+}}]\
 You should base your answer on the circumstances and the question.\n\
 Environment:{environment}.\n\
 Question:{question}\n\
