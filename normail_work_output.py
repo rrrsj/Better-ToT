@@ -1,3 +1,5 @@
+import json
 import re
 def normail_work_output(message):
-    return 
+    step=json.loads(message)
+    return step

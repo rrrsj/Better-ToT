@@ -64,7 +64,6 @@ def get_tools(retiver=None,k=None):
             "name":"get_route",
             "description": "Inquire about routes between the two locations.",
             "parameters": {
-                "type": "object",
                 "properties": {
                     "origin": {
                         "type": "string", 
@@ -81,7 +80,6 @@ def get_tools(retiver=None,k=None):
             "name":"get_distance",
             "description": "Check the distance between two places.",
             "parameters": {
-                "type": "object",
                 "properties": {
                     "origin": {
                         "type": "string", 
