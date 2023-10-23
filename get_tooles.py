@@ -1,4 +1,4 @@
-def get_tools(retiver=None,k=None):
+def get_tools(retiver=None,k=None,one=False,name=""):
     tooles = [
         {
             "name": "get_current_weather",
@@ -93,6 +93,16 @@ def get_tools(retiver=None,k=None):
                 },
         },
     ]
-    if retiver==None:
+    if retiver==None and not one:
         return tooles
+    else:
+        for i in tooles:
+            if(i["name"]==name):
+                ans=[]
+                ans.append(i)
+                return ans
+def get_available_tools():
+    available_tools = {}
+    return available_tools
+
         
