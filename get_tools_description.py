@@ -8,7 +8,7 @@ def get_description(tools):
             tool_parameter=tool_parameter+key+f"(type:{i['parameters']['properties'][key]['type']}"+f"parameter description:{i['parameters']['properties'][key]['description']}),"
         ans=ans+f"Tool's name:{tool_name},\
     Tool description:{tool_use},\
-    Tool's parameters:{tool_parameter}.\n"
+    Tool's parameters:{tool_parameter}.\\n"
     return ans
 def get_name(tools):
     ans=''

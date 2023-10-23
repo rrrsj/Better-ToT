@@ -36,7 +36,7 @@ def generate_random_hex():
     random_bytes = secrets.token_bytes(16)
     hex_num = random_bytes.hex()
     return hex_num
-def get_output(question):
+def get_ans(question):
     output=get_gpt_output(question,str(generate_random_hex()))
     ans=get_text(output)
     return ans

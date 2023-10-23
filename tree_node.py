@@ -1,5 +1,5 @@
 class tree_node():
-    def __init__(self,father,child,environment,action,score):
+    def __init__(self,father,child,environment,action):
         self.father=father
         self.child=child
         self.environment=environment
