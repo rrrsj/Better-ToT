@@ -1,96 +1,69 @@
+from tools.math import division_calculator,adding_computer,subtraction_calculator,multiplication_calculator
 def get_tools(retiver=None,k=None,one=False,name=""):
     tooles = [
         {
-            "name": "get_current_weather",
-            "description": "Get the current weather in a given location.",
+            "name": "multiplication_calculator",
+            "description": "Enter two numbers and calculate their multiplication.",
             "parameters": {
                 "properties": {
-                    "location": {
-                        "type": "string",
-                        "description": "The city and state, e.g. San Francisco, CA",
+                    "num1": {
+                        "type": "float",
+                        "description": "The first multiplier.",
                     },
-                },
-            },
-        },
-        {
-            "name": "get_forecast_weather",
-            "description": "Get the forecast weather in a given location.",
-            "parameters": {
-                "properties": {
-                    "location": {
-                        "type": "string",
-                        "description": "The city and state, e.g. San Francisco, CA",
-                    },
-                    "days":{
-                        "type":"number",
-                        "description":"The time want to get of future weather."
+                    "num2":{
+                        "type":"float",
+                        "description":"The second multiplier.",
                     }
                 },
             },
         },
         {
-            "name": "get_location",
-            "description": "Get the latitude and longitude of the location based on the address name. ",
+            "name": "division_calculator",
+            "description": "Enter two numbers and calculate their division.",
             "parameters": {
                 "properties": {
-                    "address": {
-                        "type": "string",
-                        "description": "The specific address, e.g. San Francisco, CA", 
+                    "num1": {
+                        "type": "float",
+                        "description": "dividend.",
                     },
+                    "num2": {
+                        "type": "float",
+                        "description": "divisor.",
+                    }
                 },
-                },
+            },
         },
         {
-            "name":'get_nearby_places',
-            "description": "Search for locations near the current location. It can be used to find specific places, e.g., restaurants and schools. You should obtain the user's position firstly.",
+            "name": "adding_computer",
+            "description": "Enter two numbers and calculate their adding.",
             "parameters": {
                 "properties": {
-                    "location": {
-                        "type": "string", 
-                        "description": "the name of the current location.", 
-                        },
-                    "radius": {
-                        "type": "number", 
-                        "description": "Radius from current position.", 
-                        },
-                    "keyword": {
-                        "type": "string", 
-                        "description": "Keywords of the query, e.g., restaurants and schools.", 
-                        },
+                    "num1": {
+                        "type": "float",
+                        "description": "The first addition.",
+                    },
+                    "num2": {
+                        "type": "float",
+                        "description": "The second addition.",
+                    }
                 },
-                },
+            },
         },
         {
-            "name":"get_route",
-            "description": "Inquire about routes between the two locations.",
+            "name": "subtraction_calculator",
+            "description": "Enter two numbers and calculate their subtraction.",
             "parameters": {
                 "properties": {
-                    "origin": {
-                        "type": "string", 
-                        "description": "the start of the route.", 
-                        },
-                    "destination": {
-                        "type": "string", 
-                        "description": "the end of the route.", 
-                        },
+                    "num1": {
+                        "type": "float",
+                        "description": "subtraction.",
+                    },
+                    "num2": {
+                        "type": "float",
+                        "description": "subtrahend.",
+                    }
                 },
-                },
-        },
-        {
-            "name":"get_distance",
-            "description": "Check the distance between two places.",
-            "parameters": {
-                "properties": {
-                    "origin": {
-                        "type": "string", 
-                        "description": "the start of the route.", 
-                        },
-                    "destination": {
-                        "type": "string",
-                        "description": "the end of the route.", 
-                        },
-                },
-                },
+            },
         },
     ]
     if retiver==None and not one:
@@ -102,7 +75,12 @@ def get_tools(retiver=None,k=None,one=False,name=""):
                 ans.append(i)
                 return ans
 def get_available_tools():
-    available_tools = {}
+    available_tools = {
+        "multiplication_calculator":multiplication_calculator,
+        "division_calculator":division_calculator,
+        "adding_computer":adding_computer,
+        "subtraction_calculator":subtraction_calculator,
+    }
     return available_tools
 
         

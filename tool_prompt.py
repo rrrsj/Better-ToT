@@ -10,7 +10,7 @@ You must output in this format.\n\
 Use the following format:\n\
 {{"thought": you should always think about what to do,\
 "action": the action to take, should be [{tool_names} or Final Answer],\
-"action_input": the input to the action,It should be a dictionary {{"parameter":"value"}}}}\n\
+"action_input": the input to the action,It should be a dictionary {{"parameter":"value"}},or If you want to output the final answer, then the value is your final answer.}}\n\
 Here is an example:\n\
 Environment:The longitude of Qingdao is 35.35 and the latitude is 120.\n\
 Question:What is the weather like in Qingdao? The next action you are going to perform is [{tool_names},Final Answer].\n\
