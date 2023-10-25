@@ -1,4 +1,4 @@
-def get_tool_prompt(tools,tool_names,environment,question):
+def get_tool_prompt(tools,tool_names,environment,question,guide):
     message=f'You are an intelligent assistant.You can answer any question,and you can use external tools for those that are difficult to answer.\n\
 An external tool is designed for an unspecified task, which takes input and returns output.\n\
 For example, a calculator is a calculation tool that receives two number and returns the calculation result.\n\
@@ -17,13 +17,16 @@ Question:What is the weather like in Qingdao? The next action you are going to p
 Output:{{"thought":"I should use get_weather to enter latitude and longitude to get the weather",\
 "action":"get_weather", \
 "action_input":{{"longitude":35.35,"latitude":120}}}}\n\
+Planning step, this is the step you plan in advance, you can refer to this step for output.\n\
+{guide}\n\
+Where $[num] indicates the result of Step[num]\n\
 If you want to generate the Final Answer you must output the Final Answer.\n\
 Begin!Remember to speak as a pirate when giving your final answer.\n\
 Please note that the context information may not be relevant to this conversation.\n\
 Note that you call the tool if you find the users question difficult to complete on your own;\n\
 Try to use tool interact_human to interact with humans as more as possible.\n\
 If you want to generate the Final Answer you must output the Final Answer.\n\
-You must output Observation,Action,Action_Input or Observation,Final Answer.\
+You must output Observation,Action,Action_Input or Observation,Final Answer.\n\
 Environment:{environment}\n\
 Question:{question}\n\
 Output:'

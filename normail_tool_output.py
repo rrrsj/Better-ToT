@@ -6,4 +6,4 @@ def normail_tool_output(message):
     ans = ans.replace('\'', '\"')
     ans = ans.replace('\\n', '')
     step = json.loads(ans)
-    return 
+    return step

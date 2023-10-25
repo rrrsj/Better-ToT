@@ -13,7 +13,7 @@ from use_tool import use_tools
 now_node=0
 num=2
 tree=[]
-question="Find barbecue restaurants 1000 meters around Shandong University's Qingdao campus"
+question="Calculate (1+1) *3/4"
 start_node = tree_node(0, [], question, 'null')
 tree.append(start_node)
 input = f"{question}.Generate {num} plan for me."
@@ -22,8 +22,13 @@ prompt=get_work_prompt(get_description(tools),input,get_name(tools),tree[now_nod
 prompt =prompt.replace('\n', '\\n')
 prompt =prompt.replace('\"', '\'')
 ans=get_ans(prompt)
-ans=normail_work_output(ans)
-tree = build_tree(0, tree, ans)
+while 1:
+    try:
+        ans=normail_work_output(ans)
+        tree = build_tree(0, tree, ans)
+        continue
+    except:
+        break
 while 1:
     while len(tree[now_node].child)==0:
         now_node=tree[now_node].father
@@ -45,10 +50,10 @@ while 1:
     tool_prompt=get_tool_prompt(get_description(one_tool),get_name(one_tool),tree[tree[now_node].father].environment,question)
     prompt = prompt.replace('\n', '\\n')
     prompt = prompt.replace('\"', '\'')
+    tool_output = get_ans(tool_prompt)
     while 1:
         try:
             print("111")
-            tool_output=get_ans(tool_prompt)
             tool_output=normail_tool_output(tool_output)
             break
         except:
@@ -66,9 +71,9 @@ while 1:
     prompt=get_work_prompt(get_description(tools),input,get_name(tools),tree[now_node].environment,num)
     prompt =prompt.replace('\n', '\\n')
     prompt =prompt.replace('\"', '\'')
+    ans = get_ans(prompt)
     while 1:
         try:
-            ans=get_ans(prompt)
             ans=normail_work_output(ans)
             tree = build_tree(0, tree, ans)
             continue
